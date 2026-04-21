@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "799228179112",
+    "project_id": "xpenzo-afa7e",
+    "storage_bucket": "xpenzo-afa7e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799228179112:android:3b0886075ed708c3c6489d",
+        "android_client_info": {
+          "package_name": "com.example.xpenzo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcnaYuCmnU1JcPAGgVSlWg142C-wSRCyg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
