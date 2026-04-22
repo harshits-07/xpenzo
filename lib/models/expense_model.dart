@@ -30,7 +30,7 @@ class ExpenseModel {
     return ExpenseModel(
       id: map['id'],
       title: map['title'],
-      amount: map['amount'],
+      amount: map['amount'].toDouble(),
       category: map['category'],
       date: DateTime.parse(map['date']),
       userId: map['userId'],
