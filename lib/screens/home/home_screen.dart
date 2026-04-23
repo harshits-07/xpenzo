@@ -61,7 +61,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Text('₹${expense.amount.toStringAsFixed(2)}'),
-                        Text(DateFormat("dd-mm-yyyy").format(expense.date)),
+                        Text(DateFormat("dd-MM-yyyy").format(expense.date)),
+                        Text(
+                          expense.category,
+                          style: TextStyle(color: Colors.teal),
+                        ),
                       ],
                     ),
                   );
