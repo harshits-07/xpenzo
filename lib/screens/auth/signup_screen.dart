@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:xpenzo/screens/auth/login_screen.dart';
+import 'package:xpenzo/screens/home/home_screen.dart';
 
 class SignupScreen extends ConsumerStatefulWidget {
   const SignupScreen({super.key});
@@ -39,6 +41,13 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
         password: password,
       );
       await FirebaseAuth.instance.currentUser!.updateDisplayName(name);
+
+      if (!mounted) return;
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+        (route) => false,
+      );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(
