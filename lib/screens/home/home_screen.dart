@@ -54,19 +54,39 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 itemCount: expenseState.length,
                 itemBuilder: (context, index) {
                   var expense = expenseState[index];
-                  return ListTile(
-                    leading: Text("${index + 1}"),
-                    title: Text(expense.title.toString()),
-                    subtitle: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text('₹${expense.amount.toStringAsFixed(2)}'),
-                        Text(DateFormat("dd-MM-yyyy").format(expense.date)),
-                        Text(
-                          expense.category,
-                          style: TextStyle(color: Colors.teal),
+                  return Dismissible(
+                    key: Key(expense.id),
+                    direction: DismissDirection.endToStart,
+                    background: Container(
+                      color: Colors.red,
+                      child: Center(
+                        child: Text(
+                          "Delete",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ],
+                      ),
+                    ),
+                    onDismissed: (direction) => ref
+                        .read(expenseProvider.notifier)
+                        .deleteExpense(expense.id),
+                    child: ListTile(
+                      leading: Text("${index + 1}"),
+                      title: Text(expense.title.toString()),
+                      subtitle: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text('₹${expense.amount.toStringAsFixed(2)}'),
+                          Text(DateFormat("dd-MM-yyyy").format(expense.date)),
+                          Text(
+                            expense.category,
+                            style: TextStyle(color: Colors.teal),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
