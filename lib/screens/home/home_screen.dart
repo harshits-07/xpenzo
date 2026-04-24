@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:xpenzo/providers/expense_provider.dart';
 import 'package:xpenzo/screens/add_expense/add_expense.dart';
+import 'package:xpenzo/screens/summary/summary_screen.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -33,6 +34,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         title: Text("Xpenzo"),
         centerTitle: true,
         actions: [
+            IconButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const SummaryScreen()),
+        );
+      },
+      icon: const Icon(Icons.bar_chart, color: Colors.teal),
+    ),
           IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
