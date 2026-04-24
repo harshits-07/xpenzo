@@ -112,18 +112,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               children: [
                 Text(
                   "Hello, $name 👋",
-                  style: const TextStyle(
-                    color: Colors.white70,
-                    fontSize: 16,
-                  ),
+                  style: const TextStyle(color: Colors.white70, fontSize: 16),
                 ),
                 const SizedBox(height: 4),
                 const Text(
                   "Total Expenses",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 14,
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 14),
                 ),
                 const SizedBox(height: 8),
                 Text(
@@ -156,10 +150,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 ),
                 Text(
                   "${expenseState.length} items",
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey.shade500,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.grey.shade500),
                 ),
               ],
             ),
@@ -235,7 +226,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             borderRadius: BorderRadius.circular(16),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.04),
+                                color: Colors.black.withValues(alpha: 0.04),
                                 blurRadius: 8,
                                 offset: const Offset(0, 2),
                               ),
@@ -269,8 +260,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                     ),
                                     const SizedBox(height: 4),
                                     Text(
-                                      DateFormat('dd MMM yyyy')
-                                          .format(expense.date),
+                                      DateFormat(
+                                        'dd MMM yyyy',
+                                      ).format(expense.date),
                                       style: TextStyle(
                                         fontSize: 12,
                                         color: Colors.grey.shade500,
