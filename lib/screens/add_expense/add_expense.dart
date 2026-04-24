@@ -122,7 +122,7 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
         selectedDate == null) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text("Please fill all feilds!")));
+      ).showSnackBar(SnackBar(content: Text("Please fill all fields!")));
       return;
     }
 
@@ -137,7 +137,7 @@ class _AddExpenseScreenState extends ConsumerState<AddExpenseScreen> {
       userId: user.uid,
     );
 
-    ref.read(expenseProvider.notifier).addExpense(expense);
+   await ref.read(expenseProvider.notifier).addExpense(expense);
 
     if (!mounted) return;
     Navigator.pop(context);
