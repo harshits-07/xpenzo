@@ -8,10 +8,10 @@ A full-stack mobile expense tracking application built with **Flutter & Firebase
 
 
 <p float="left">
-  <img src="screenshots/login.jpg" width="200"/>
-  <img src="screenshots/home.jpg" width="200"/>
-  <img src="screenshots/add_expense.jpg" width="200"/>
-  <img src="screenshots/summary.jpg" width="200"/>
+  <img src="screenshots/login.jpeg" width="200"/>
+  <img src="screenshots/home.jpeg" width="200"/>
+  <img src="screenshots/add_expense.jpeg" width="200"/>
+  <img src="screenshots/summary.jpeg" width="200"/>
 </p>
 
 ---
