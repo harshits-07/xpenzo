@@ -37,10 +37,13 @@ class MyApp extends ConsumerWidget {
           }
         },
         error: (error, st) {
-          const LoginScreen();
+         return const LoginScreen();
         },
-        loading: () =>
-            Center(child: CircularProgressIndicator(color: Colors.teal)),
+       loading: () => const Scaffold(
+  body: Center(
+    child: CircularProgressIndicator(color: Colors.teal)
+  ),
+),
       ),
     );
   }
