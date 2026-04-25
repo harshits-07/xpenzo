@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:xpenzo/firebase_options.dart';
+import 'package:xpenzo/providers/auth_provider.dart';
+import 'package:xpenzo/screens/auth/login_screen.dart';
+import 'package:xpenzo/screens/home/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -9,19 +13,38 @@ void main() async {
   runApp(ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authProvider);
+
     return MaterialApp(
       title: 'Xpenzo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: .fromSeed(seedColor: Colors.teal)),
-      home: const Scaffold(body: Center(child: Text("Xpenzo is working! 🔥"))),
+        colorScheme: .fromSeed(seedColor: Colors.teal),
+      ),
+      home: authState.when(
+        data: (User? user) {
+          if (user != null) {
+            return const HomeScreen();
+          } else {
+            return const LoginScreen();
+          }
+        },
+        error: (error, st) {
+         return const LoginScreen();
+        },
+       loading: () => const Scaffold(
+  body: Center(
+    child: CircularProgressIndicator(color: Colors.teal)
+  ),
+),
+      ),
     );
   }
 }
